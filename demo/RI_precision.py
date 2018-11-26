@@ -30,7 +30,7 @@ def process(prePara):
 	gtLogLabel=-1*ones((logNum,1))   #index start from 0
 	gtfilepath=prePara.groundTruthDataPath+prePara.groundTruthGroupNamePat
 	gtfileNum=len(glob(gtfilepath+'[0-9]*.txt'))
-	print 'there are altogether',gtfileNum, 'files'
+	print('there are altogether',gtfileNum, 'files')
 	gtLogNumOfEachGroup=zeros((gtfileNum,1))
 	getGtLabel(gtfilepath,gtLogLabel,gtfileNum,gtLogNumOfEachGroup)
 
@@ -41,7 +41,7 @@ def process(prePara):
 	#geneClusterLabel is a list of dictionary, for each group by algorithm, 
 	#it has a dictionary, with key of ID, value of label from groundtruth
 	geneLogNumOfEachGroup=zeros((fileNum,1))
-	print 'there are altogether',fileNum, 'files'
+	print('there are altogether',fileNum, 'files')
 	#for logs in each generated templates, count that for each templates file, the number of each different labels of logs.
 	for i in range(fileNum):
 		filename=geneFilePath+str(i+1)+'.txt'
@@ -81,7 +81,7 @@ def process(prePara):
 	FP=TP_FP-TP
 	TN=TP_FP_TN_FN-TP_FP-FN
 	#print 'TP_FP,TP_FN,TP_FP_TN_FN',TP_FP,TP_FN,TP_FP_TN_FN
-	print 'TP,FP,TN,FN are:',TP,FP,TN,FN
+	print ('TP,FP,TN,FN are:',TP,FP,TN,FN)
 	precision=float(TP)/(TP_FP)
 	recall=float(TP)/(TP_FN)
 	b=prePara.beta
